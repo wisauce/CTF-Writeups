@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  findit:
+    container_name: tungtungtungsahur
+    restart: always
+    build:
+      context: .
+    working_dir: /home/pwn
+    ports:
+      - "10016:8080" # exposed:local
+    read_only: false

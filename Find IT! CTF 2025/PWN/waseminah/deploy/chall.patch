@@ -1,0 +1,27 @@
+diff --git a/src/wasm/function-body-decoder-impl.h b/src/wasm/function-body-decoder-impl.h
+index 9773c2bb462..c170cf4bb27 100644
+--- a/src/wasm/function-body-decoder-impl.h
++++ b/src/wasm/function-body-decoder-impl.h
+@@ -5790,14 +5790,14 @@ class WasmFullDecoder : public WasmDecoder<ValidationTag, decoding_mode> {
+                             src_imm)) {
+           return 0;
+         }
+-        if (!IsSubtypeOf(src_imm.array_type->element_type(),
+-                         dst_imm.array_type->element_type(), this->module_)) {
+-          this->DecodeError(
+-              "array.copy: source array's #%d element type is not a subtype of "
+-              "destination array's #%d element type",
+-              src_imm.index.index, dst_imm.index.index);
+-          return 0;
+-        }
++        // if (!IsSubtypeOf(src_imm.array_type->element_type(),
++        //                  dst_imm.array_type->element_type(), this->module_)) {
++        //   this->DecodeError(
++        //       "array.copy: source array's #%d element type is not a subtype of "
++        //       "destination array's #%d element type",
++        //       src_imm.index.index, dst_imm.index.index);
++        //   return 0;
++        // }
+         auto [dst, dst_index, src, src_index, length] =
+             Pop(ValueType::RefNull(dst_imm.heap_type()), kWasmI32,
+                 ValueType::RefNull(src_imm.heap_type()), kWasmI32, kWasmI32);

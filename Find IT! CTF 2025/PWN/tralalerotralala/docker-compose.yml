@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  findit:
+    container_name: tralalerotralala
+    restart: always
+    build:
+      context: .
+    working_dir: /home/tralalerotralala
+    ports:
+      - "10017:8080" # exposed:local
+    read_only: false

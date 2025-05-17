@@ -1,0 +1,20 @@
+name: chovidsearch
+services:
+  challenge:
+    build:
+      context: .
+      dockerfile: ./build/Dockerfile
+      args:
+        FLAG: "FindITCTF{i_tr13d_t0_s3arCh_a_c0urSe_4nd_i_f0uNd_cylabus!!!j4ng4n_luPa_f0llOw_y4!!!}"
+    working_dir: /home/pwn
+    container_name: chovidsearch
+    ulimits:
+      nproc: 65535
+      core: 0
+    ports:
+      - "8044:9999"
+    entrypoint: /etc/init.sh
+    init: true
+    restart: always
+    cap_add:
+      - SYS_PTRACE
